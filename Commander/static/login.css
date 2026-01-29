@@ -1,0 +1,191 @@
+/* ---------------- Background ---------------- */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background: url('https://i.pinimg.com/736x/db/bd/0e/dbbd0ec333ee301aee6e99a752ee6db6.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay to darken background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+}
+
+/* ---------------- Glass Container ---------------- */
+.login-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 10px 20px;
+    width: 450px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+/* ---------------- Heading ---------------- */
+.login-container h2 {
+    color: #d36e38;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-shadow: 0 0 8px #535151;
+}
+
+/* ---------------- Input ---------------- */
+.login-container input#username {
+    padding: 12px;
+    font-size: 16px;
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid rgba(250, 195, 119, 0.7);
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.login-container input#username::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.login-container input#username:focus {
+    border: 1px solid #fabd77;
+    box-shadow: 0 0 8px #fab677;
+    background: rgba(255,255,255,0.15);
+}
+
+/* ---------------- Buttons ---------------- */
+.login-container button {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: #fabd77;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(250, 178, 119, 0.5);
+
+    display: block;      /* take full line */
+    margin-left: auto;       /* stick to left */
+    margin-right: auto;   /* push remaining space to right */
+}
+
+
+.login-container button:hover {
+    background: #d4965d;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(250, 198, 119, 0.7);
+}
+
+/* ---------------- Back Button ---------------- */
+#backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 18px;
+    background: #848484;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+#backBtn:hover {
+    background: #9a5dd4;
+    transform: scale(1.1);
+}
+
+/* ---------------- Video Box ---------------- */
+.video-box {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 260px;
+    /* left: 100px; */
+    top: -15px;
+    height: 270px;
+    border: 2px solid #fab277;
+    box-shadow: 0 4px 20px rgba(250, 178, 119, 0.5);
+}
+
+video, canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* ---------------- Popup Message ---------------- */
+.msg-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50px) translateY(-50px) scale(0.9); /* start slightly off top-right */
+    z-index: 9999;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+    transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+/* Success message */
+.msg-popup.success {
+    background: #4CAF50;
+}
+
+/* Error message */
+.msg-popup.error {
+    background: #f44336;
+}
+
+/* Show animation with bounce from top-right */
+.msg-popup.show {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    animation: popupBounce 0.5s ease;
+}
+
+/* Keyframes for bounce effect */
+@keyframes popupBounce {
+    0% {
+        transform: translateX(50px) translateY(-50px) scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-5px) translateY(10px) scale(1.05);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(2px) translateY(-5px) scale(0.98);
+    }
+    100% {
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}

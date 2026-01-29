@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/register.css">
+    <script defer src="/static/script.js"></script>
+</head>
+<body>
+
+<!-- Back button -->
+<a href="/" class="back-btn">← Back</a>
+
+<div id="msg" class="msg-popup"></div>
+
+<div class="register-container">
+    <h2>Create Account</h2>
+
+    <input id="username" placeholder="Enter Username">
+
+    <div class="video-box">
+        <video id="video" autoplay muted></video>
+        <canvas id="mesh"></canvas>
+    </div>
+
+    <button onclick="doRegister()">Capture & Register</button>
+
+</div>
+
+</body>
+</html>

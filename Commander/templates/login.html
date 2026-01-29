@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/login.css">
+    <script defer src="/static/login.js"></script>
+</head>
+<body>
+
+<!-- Back Button -->
+<button id="backBtn" onclick="window.location.href='/'">Back</button>
+
+<!-- Glassmorphic container -->
+<div class="login-container">
+    <h2>Login</h2>
+    <input id="username" placeholder="Enter Username"><br>
+
+    <div class="video-box">
+        <video id="video" autoplay muted></video>
+        <canvas id="mesh"></canvas>
+    </div>
+
+    
+
+    <button onclick="doLogin()">Capture & Login</button>
+</div>
+<div id="msg" class="msg-popup"></div>
+</body>
+</html>

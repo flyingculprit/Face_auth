@@ -1,0 +1,106 @@
+/* Full page setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c, #111);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Animated glowing background blobs */
+.bg-anim::before,
+.bg-anim::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.6;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+.bg-anim::before {
+    background: #ae77fa;
+    top: -100px;
+    left: -100px;
+}
+
+.bg-anim::after {
+    background: #3aa0ff;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0) translateX(0);
+    }
+    to {
+        transform: translateY(80px) translateX(60px);
+    }
+}
+
+/* Glassmorphism card */
+.dashboard-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 60px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(174,119,250,0.25);
+    animation: fadeInUp 0.8s ease;
+}
+
+/* Heading with glow */
+.dashboard-card h1 {
+    margin: 0 0 15px 0;
+    font-size: 32px;
+    color: #ae77fa;
+    text-shadow: 0 0 15px rgba(174,119,250,0.6);
+}
+
+/* Sub text */
+.dashboard-card p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+/* Modern logout button */
+.logout-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #ae77fa, #3aa0ff);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(174,119,250,0.5);
+}
+
+/* Hover animation */
+.logout-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(174,119,250,0.8);
+}
+
+/* Entry animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
